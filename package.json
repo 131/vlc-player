@@ -1,0 +1,32 @@
+{
+  "name": "vlc-player",
+  "version": "0.9.0",
+  "description": "VLC player (wrapper around vlc binaries with RC control)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/131/node-vlc-player.git"
+  },
+  "keywords": [
+    "vlc",
+    "player",
+    "mp4"
+  ],
+  "author": "Francois Leurent <131.js@cloudyks.org>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/131/node-vlc-player/issues"
+  },
+  "homepage": "https://github.com/131/node-vlc-player#readme",
+  "dependencies": {
+    "mout": "^0.11.1",
+    "nyks": "^2.5.1",
+    "uclass": "^2.0.7"
+  }
+}
