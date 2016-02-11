@@ -2,20 +2,16 @@
 
 var vlc = require('./');
 
-var player = vlc(function(){
-  var play = function() {
-    player.play("test\\video0.mp4", function(){
-      console.log("Playing")
-    });
-  }; play()
 
+(function loop(){
 
-  setTimeout(function(){
-    player.stop(function(){
-      console.log("stopped")
-    });
-    setTimeout(play, 2000);
-  }, 2000);
+  var player = vlc(function(){
+    console.log("ready");
+  });
 
+  if(false) setTimeout(function(){
+    player.play("test/video0.mp4", function(){} );
+  }, 1000);
 
-});
+  player.on("error", loop);
+})();

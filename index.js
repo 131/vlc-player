@@ -25,11 +25,6 @@ var Main = new Class({
 
     var self = this;
 
-    self._onFailure = function(){
-      chain("VLC Closed too early");
-    }
-
-
     var configOpt = {
       'ignore-config'    : null,
       'no-crashdump'     : null,
@@ -40,6 +35,7 @@ var Main = new Class({
       'verbose'          : 0,
       'intf'             : 'dummy',
       'dummy-quiet'      : null,
+      'video-on-top'     : null,
 
 
       'extraintf'        : 'rc',
@@ -55,16 +51,17 @@ var Main = new Class({
     var vlc_path = path.join(__dirname, "vlc/vlc.exe");
     var recorder = cp.spawn(vlc_path, args);
 
-    if(true)
+    if(false)
       recorder.stderr.pipe(process.stderr);
 
     recorder.once('error', function(){
       chain("Cannot find VLC in " + vlc_path);
     });
 
-    recorder.once("exit", function(){ });
+    recorder.once("exit", function(){ self.emit("error") });
+    recorder.once('error', function() { });
 
-    process.on('exit', function(code) { recorder.kill(); });
+    process.once('exit', function(code) { recorder.kill(); });
 
 
     var attempt = 5;
@@ -75,12 +72,13 @@ var Main = new Class({
         console.log("Connected to " + self.RC_PORT);
         self._recorderState = 'ready';
         self._vlcCtrlStream.removeAllListeners("error");
+        self._vlcCtrlStream.on("error", function(){} ); //vlc exit
         chain();
       });
 
       self._vlcCtrlStream.setNoDelay();
 
-      self._vlcCtrlStream.on("error", function(){
+      self._vlcCtrlStream.once("error", function(){
         attempt --;
         if(!attempt)
           return chain("Could not connect");
