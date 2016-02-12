@@ -1,6 +1,6 @@
 {
   "name": "vlc-player",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "VLC player",
   "main": "index.js",
   "directories": {
@@ -24,6 +24,5 @@
     "url": "https://github.com/131/node-vlc-player/issues"
   },
   "homepage": "https://github.com/131/node-vlc-player#readme",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
