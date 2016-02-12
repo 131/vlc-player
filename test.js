@@ -3,15 +3,8 @@
 var vlc = require('./');
 
 
-(function loop(){
-
-  var player = vlc(function(){
-    console.log("ready");
-  });
-
-  if(false) setTimeout(function(){
-    player.play("test/video0.mp4", function(){} );
-  }, 1000);
-
-  player.on("error", loop);
-})();
+var video = vlc( ["test/video0.mp4", "--loop"] , {
+  env : {
+    foo : 'bar32',
+  }
+});
