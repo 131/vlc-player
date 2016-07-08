@@ -2,6 +2,8 @@
 
 Simply start vlc.exe (included in the module) process 
 
+
+
 # API
 
 ```
@@ -17,6 +19,23 @@ setTimeout(function(){
 }, 1000);
 
 ```
+
+
+
+
+# NB
+
+The indent of this module is mostly to provide binaries for windows, linux equivalent (that we explicitly require at the application level)  is a "dummy" : 
+```
+"use strict";
+
+var cp       = require('child_process');
+var vlc_path = require('nyks/path/which')('vlc');
+module.exports = function(/* args, options */) {
+  return cp.spawn.bind(null, vlc_path).apply(null, arguments);
+}
+```
+
 
 
 # TODO
