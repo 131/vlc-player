@@ -1,33 +1,24 @@
 # VLC player
-
 Simply start vlc.exe (included in the module) process 
 
+## API
 
-
-# API
-
-```
-
-var child = require('vlc-player')( ['path/to/video.mp4'] );
+```js
+const child = require('vlc-player')( ['path/to/video.mp4'] );
 
 // vlc is started
 // child is a dummy nodejs process
 
-
 setTimeout(function(){
   child.kill();
 }, 1000);
-
 ```
 
-
-
-
-# NB
+## NB
 
 The indent of this module is mostly to provide binaries for windows, linux equivalent (that we explicitly require at the application level)  is a "dummy" : 
-```
-"use strict";
+```js
+'use strict';
 
 var cp       = require('child_process');
 var vlc_path = require('nyks/path/which')('vlc');
