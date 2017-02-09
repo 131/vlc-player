@@ -1,6 +1,6 @@
 {
   "name": "vlc-player",
-  "version": "0.13.0",
+  "version": "1.0.0",
   "description": "VLC player",
   "main": "index.js",
   "directories": {
