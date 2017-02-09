@@ -1,15 +1,10 @@
 'use strict';
 
-var path    = require('path');
-var cp      = require('child_process');
+const path    = require('path');
+const spawn   = require('child_process').spawn;
 
+const vlc_path = path.join(__dirname, "vlc/vlc.exe");
 
-var vlc_path ="vlc";
-
-if(process.platform == "win32")
-  vlc_path = path.join(__dirname, "vlc/vlc.exe");
-
-module.exports = function(/* args, options */){
-
-  return cp.spawn.bind(null, vlc_path).apply(null, arguments);
+module.exports = function(/* args, options */) {
+  return spawn.bind(null, vlc_path).apply(null, arguments);
 }

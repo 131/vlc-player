@@ -20,10 +20,9 @@ The indent of this module is mostly to provide binaries for windows, linux equiv
 ```js
 'use strict';
 
-var cp       = require('child_process');
-var vlc_path = require('nyks/path/which')('vlc');
+const spawn   = require('child_process').spawn;
 module.exports = function(/* args, options */) {
-  return cp.spawn.bind(null, vlc_path).apply(null, arguments);
+  return spawn.bind(null, 'vlc').apply(null, arguments);
 }
 ```
 
