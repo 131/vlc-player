@@ -1,5 +1,5 @@
 # VLC player
-Simply start vlc.exe (included in the module) process 
+Simply lookup and start vlc process 
 
 ## API
 
@@ -14,25 +14,9 @@ setTimeout(function(){
 }, 1000);
 ```
 
-## NB
-
-The indent of this module is mostly to provide binaries for windows, linux equivalent (that we explicitly require at the application level)  is a "dummy" : 
-```js
-'use strict';
-
-const spawn   = require('child_process').spawn;
-module.exports = function(/* args, options */) {
-  return spawn.bind(null, 'vlc').apply(null, arguments);
-}
-```
-
-
-
-# TODO
-* Nothing special (very dummy module)
 
 # Credits
-* [131](mailto:131.js@cloudyks.org)
+* [131](mailto:131.code@leurent.email)
 * [VLC](http://videolan.org)
 
 
