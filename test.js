@@ -10,10 +10,10 @@ var screensaver = require('screensaver-win');
 
 ( function stuff(){
   var video;
-  screensaver(10, function(){
+  screensaver(10, async function(){
     console.log("Screensaver start");
 
-    video = vlc( ["test/video0.mp4", "--loop", "--fullscreen", "--quiet", "--intf", "dummy", "--dummy-quiet" ] , {
+    video = await vlc( ["test/video0.mp4", "--loop", "--fullscreen", "--quiet", "--intf", "dummy", "--dummy-quiet" ] , {
         env : {
           foo : 'bar32',
         }

@@ -4,13 +4,15 @@ Simply lookup and start vlc process
 ## API
 
 ```js
-const child = require('vlc-player')( ['path/to/video.mp4'] );
+const vlc = require('vlc-player');
+
+const player = await vlc( ['path/to/video.mp4'] );
 
 // vlc is started
 // child is a dummy nodejs process
 
 setTimeout(function(){
-  child.kill();
+  player.kill();
 }, 1000);
 ```
 
